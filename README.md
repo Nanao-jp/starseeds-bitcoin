@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Starseeds Bitcoin Treasury Website
 
-## Getting Started
+## 1. プロジェクト概要
 
-First, run the development server:
+このプロジェクトは、Starseeds株式会社のビットコイントレジャリー事業に関する情報を公開するための公式ウェブサイトです。
+事業の透明性と信頼性をステークホルダーに提示することを主な目的とします。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 2. 技術構成とプロジェクト構造
+
+本プロジェクトは、モダンなWeb開発技術を用いて構築されています。
+
+### 主要技術スタック
+
+- **フレームワーク**: [Next.js](https://nextjs.org/) 15 (App Router)
+- **言語**: [TypeScript](https://www.typescriptlang.org/)
+- **スタイリング**: [Tailwind CSS](https://tailwindcss.com/)
+- **パッケージマネージャー**: npm
+- **ホスティング**: Vercel (予定)
+
+### ディレクトリ構造
+
+```
+.
+├── public/
+│   └── images/
+│       └── logo.png        # サイトロゴ
+├── src/
+│   ├── app/
+│   │   ├── about/          # 会社概要ページ
+│   │   ├── contact/        # お問い合わせページ
+│   │   ├── news/           # ニュースページ
+│   │   ├── treasury/       # トレジャリーページ
+│   │   ├── globals.css     # グローバルCSS
+│   │   ├── layout.tsx      # ルートレイアウト
+│   │   └── page.tsx        # トップページ
+│   └── components/
+│       ├── Header.tsx      # 共通ヘッダー
+│       └── Footer.tsx      # 共通フッター
+├── next.config.mjs         # Next.js 設定ファイル
+├── postcss.config.mjs      # PostCSS 設定ファイル
+├── tailwind.config.ts      # Tailwind CSS 設定ファイル
+└── tsconfig.json           # TypeScript 設定ファイル
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 3. 開発の進め方と今後のタスク
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+以下のタスクリストに基づいて、機能開発とデザイン実装を段階的に進めていきます。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ToDoリスト
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [x] **基本設定とトップページデザイン**
+  - [x] Next.jsプロジェクトのセットアップ
+  - [x] ダークテーマの基本設定
+  - [x] ヘッダー、フッターコンポーネントの作成
+  - [x] トップページのレイアウトとスタイリング
+- [ ] **トップページ以外のスタイリング**
+  - [ ] トレジャリーページ
+  - [ ] ニュースページ
+  - [ ] 会社概要ページ
+  - [ ] お問い合わせページ
+- [ ] **トレジャリーページの詳細実装**
+  - [ ] 保有量推移を示すグラフコンポーネントの作成（モックデータ使用）
+  - [ ] 取引履歴テーブルの作成（モックデータ使用）
+- [ ] **ニュース/ブログ機能の実装**
+  - [ ] Markdownファイルから記事を読み込み、一覧と詳細ページを生成する仕組みの構築
+- [ ] **外部API連携**
+  - [ ] CoinGeckoなどのAPIを利用し、ビットコイン価格をリアルタイムで取得・表示
+- [ ] **レスポンシブデザイン対応**
+  - [ ] スマートフォンやタブレットなど、各デバイスでの表示を最適化
