@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Orbitron } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const orbitron = Orbitron({ subsets: ["latin"], weight: "700", variable: "--font-orbitron" });
 
 export const metadata: Metadata = {
   title: "Starseeds Bitcoin Treasury",
-  description: "Starseeds Inc.のビットコイントレジャリーサイトです。",
+  description: "Starseeds株式会社の公式ビットコイントレジャリーサイト",
 };
 
 export default function RootLayout({
@@ -19,17 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="dark">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          inter.variable
-        )}
-      >
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+      <body className={`${inter.variable} ${orbitron.variable} font-sans`}>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
