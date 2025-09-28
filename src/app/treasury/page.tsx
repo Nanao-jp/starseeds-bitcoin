@@ -148,26 +148,51 @@ export default function TreasuryPage() {
               <CardTitle>取引履歴</CardTitle>
             </CardHeader>
             <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>取引日</TableHead>
-                    <TableHead className="text-right">購入量 (BTC)</TableHead>
-                    <TableHead className="text-right">取得単価 (JPY)</TableHead>
-                    <TableHead className="text-right">取得費用 (JPY)</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {transactionsData.map((tx) => (
-                    <TableRow key={tx.id}>
-                      <TableCell>{tx.date}</TableCell>
-                      <TableCell className="text-right font-mono">{tx.btcAmount.toFixed(4)}</TableCell>
-                      <TableCell className="text-right font-mono">¥{tx.pricePerBtcJpy.toLocaleString()}</TableCell>
-                      <TableCell className="text-right font-mono">¥{(tx.btcAmount * tx.pricePerBtcJpy).toLocaleString()}</TableCell>
+              {/* Desktop Table */}
+              <div className="hidden md:block">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>取引日</TableHead>
+                      <TableHead className="text-right">購入量 (BTC)</TableHead>
+                      <TableHead className="text-right">取得単価 (JPY)</TableHead>
+                      <TableHead className="text-right">取得費用 (JPY)</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {transactionsData.map((tx) => (
+                      <TableRow key={tx.id}>
+                        <TableCell>{tx.date}</TableCell>
+                        <TableCell className="text-right font-mono">{tx.btcAmount.toFixed(4)}</TableCell>
+                        <TableCell className="text-right font-mono">¥{tx.pricePerBtcJpy.toLocaleString()}</TableCell>
+                        <TableCell className="text-right font-mono">¥{(tx.btcAmount * tx.pricePerBtcJpy).toLocaleString()}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+
+              {/* Mobile Card List */}
+              <div className="md:hidden space-y-4">
+                {transactionsData.map((tx) => (
+                  <Card key={tx.id} className="bg-white/10 p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-semibold">{tx.date}</span>
+                      <span className="font-mono text-lg font-bold text-primary">{tx.btcAmount.toFixed(4)} BTC</span>
+                    </div>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <div className="flex justify-between">
+                        <span>取得単価:</span>
+                        <span className="font-mono">¥{tx.pricePerBtcJpy.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>取得費用:</span>
+                        <span className="font-mono">¥{(tx.btcAmount * tx.pricePerBtcJpy).toLocaleString()}</span>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </section>

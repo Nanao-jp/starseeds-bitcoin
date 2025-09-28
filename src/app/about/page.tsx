@@ -79,9 +79,9 @@ export default function AboutPage() {
                     business: "事業内容",
                   }[key];
                   return (
-                    <div key={key} className="grid grid-cols-3 gap-4 py-4">
+                    <div key={key} className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-1 py-4">
                       <dt className="font-semibold text-muted-foreground">{label}</dt>
-                      <dd className="col-span-2">{value}</dd>
+                      <dd className="md:col-span-2">{value}</dd>
                     </div>
                   );
                 })}

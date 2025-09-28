@@ -41,8 +41,8 @@ export default async function Home() {
           </h1>
 
           <div className="mb-8 flex items-center justify-center">
-            <Bitcoin className="mr-4 h-16 w-16 text-primary" />
-            <div className="font-bold tracking-tight text-white sm:text-8xl md:text-9xl">
+            <Bitcoin className="mr-2 h-12 w-12 text-primary sm:mr-4 sm:h-16 sm:w-16" />
+            <div className="text-6xl font-bold tracking-tight text-white sm:text-8xl md:text-9xl">
               <AnimatedNumber
                 value={btcAmount}
                 decimals={4}
@@ -59,7 +59,7 @@ export default async function Home() {
                 <Landmark className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">
+                <div className="text-3xl font-bold">
                   {currentValueJpy > 0 ? (
                     <AnimatedNumber
                       value={currentValueJpy}
@@ -79,7 +79,7 @@ export default async function Home() {
                 <History className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <p className="text-2xl font-bold">
+                <p className="text-3xl font-bold">
                   {lastPurchaseDate}
                 </p>
               </CardContent>
